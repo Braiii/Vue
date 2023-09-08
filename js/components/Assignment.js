@@ -1,11 +1,10 @@
 export default {
-    template: `
-        <li>
-            <label class="p-2 flex justify-between">
-                {{ assignment.name }} 
-                <input type="checkbox" v-model="assignment.complete" class="ml-3">
-            </label>
-        </li>
+    template: /*html*/`
+        <label class="flex items-center justify-between px-3 py-2">
+            {{ assignment.name }}
+
+            <input class="ml-3" type="checkbox" v-model="assignment.complete" />
+        </label>
     `,
 
     props: {

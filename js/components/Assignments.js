@@ -5,10 +5,11 @@ export default {
     components: { AssignmentList, AssignmentCreate },
 
     template: /*html*/`
-        <section class="space-y-5">
-            <assignment-list :assignments="filters.inProgress" title="In Progress"></assignment-list>
-            <assignment-list :assignments="filters.completed" title="Completed"></assignment-list>
-            <assignment-create @add="add"></assignment-create>
+        <section class="space-y-6">
+            <assignment-list :assignments="filters.inProgress" title="In Progress"/>
+            <assignment-list :assignments="filters.completed" title="Completed"/>
+
+            <assignment-create @add="add"/>
         </section>
     `,
 
@@ -20,13 +21,13 @@ export default {
                 { id: 3, name: 'Turn in Homework', complete: false, tag: 'math' }
             ]
         }
-    }, 
+    },
 
     computed: {
         filters() {
             return {
-                'inProgress': this.assignments.filter(assignment => ! assignment.complete),
-                'completed': this.assignments.filter(assignment => assignment.complete)
+                completed: this.assignments.filter(a => a.complete),
+                inProgress: this.assignments.filter(a => ! a.complete)
             }
         }
     },
@@ -34,9 +35,10 @@ export default {
     methods: {
         add(name) {
             this.assignments.push({
+                id: this.assignments.length + 1,
                 name: name,
                 complete: false,
-                id: this.assignments.length + 1
+                tag: 'math',
             });
         }
     }
