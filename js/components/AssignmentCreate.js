@@ -1,8 +1,8 @@
 export default {
     template: /*html*/`
-        <form @submit.prevent="add">
-            <div class="mb-6">
-                <input class="border border-gray-400 p-1 w-full text-gray-600"
+        <form @submit.prevent="add" class="mt-5">
+            <div class="mb-6 flex">
+                <input class="p-2 w-full text-gray-600 focus:outline-none"
                     type="text"
                     name="assignment"
                     id="assignment"
@@ -10,14 +10,7 @@ export default {
                     required
                     v-model="newAssignment"
                 >
-            </div>
-
-            <div class="mb-6">
-                <button type="submit"
-                    class="bg-gray-700 text-white rounded py-2 px-4 hover:bg-gray-600"
-                >
-                    Add
-                </button>
+                <button type="submit" class="bg-white text-black p-2 border-l">Add</button>
             </div>
         </form>
     `, 
